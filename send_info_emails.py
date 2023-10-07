@@ -11,7 +11,7 @@ EMAIL_COL = 3
 
 if __name__=="__main__":
     args = sys.argv
-    
+
     # check that argument has been provided
     if (len(args) != 1):
         print("Please include the path to the spreadsheet file as an argument")
@@ -21,25 +21,27 @@ if __name__=="__main__":
 
         data = pandas.read_excel(spreadsheet_name)
 
+        # define message content variables
         sender_email = credentials.SENDER_EMAIL
         sender_pw = credentials.SENDER_PW
         subject = credentials.SUBJECT
-
         email_start_template = "Hello {name},\n\nThis is what we have recorded for your GrandWall order:\n\n"
         email_end_template = "\nTo pay for your order, please etransfer ${amount} to " + credentials.SWAGMASTER_EMAIL + '\n\nThanks,\n' + credentials.SWAGMASTER_NAME + '\nProduct and Sales Coordinator / Swag Master\nUBC Varsity Outdoor Club'
-        # first_row = data.iloc[0].astype(str)
-        first_row = data.keys()
 
+        # make email connection
+        # this would have to be changed for a non-gmail sender
         smtp_server = 'smtp.gmail.com'
         smtp_port = 587
         server = smtplib.SMTP(smtp_server, smtp_port)
         server.starttls()
         server.login(sender_email, sender_pw)
 
-        # iterate through each order
-        for index, row in data.iloc[1:].iterrows():
+        first_row = data.keys()
+
+        for index, row in data.iloc[1:].iterrows(): # each row in data is an order entry in the spreadsheet
             row = row.fillna(0)
-            # add name to start of email
+            
+            # add name to start of email if specified
             name = ''
             if row[NAME_COL]:
                 name = row[NAME_COL]
