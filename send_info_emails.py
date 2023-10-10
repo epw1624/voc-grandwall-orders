@@ -13,7 +13,7 @@ if __name__=="__main__":
     args = sys.argv
 
     # check that argument has been provided
-    if (len(args) != 1):
+    if (len(args) < 2):
         print("Please include the path to the spreadsheet file as an argument")
 
     else:
