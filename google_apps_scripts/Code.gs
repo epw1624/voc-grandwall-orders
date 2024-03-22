@@ -16,6 +16,7 @@ function onFormSubmit(e) {
 
   MailApp.sendEmail({
     to: respondentEmail,
+    cc: "vocproductsandsales@gmail.com",
     subject: 'Your VOC GrandWall Order',
     htmlBody: message
   });
