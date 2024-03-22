@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <p>Hello <?= name ?>,</p>
+
+    <p>This is what we have recorded for your GrandWall order:</p>
+
+    <br>
+    
+    <ul>
+      <? for (item of itemList) { ?>
+        <li><?= item ?></li>
+      <? } ?>
+    </ul>
+
+    <br>
+
+    To pay for your order, please etransfer <strong>$<?= total ?></strong> to gledhillpeter@gmail.com. If you made multiple orders, please send a separate etransfer for each order.<br>
+    The deadline to etransfer is Thursday, March 28th at 11:59pm (but feel free to do it right now!)<br><br>
+
+    Thanks,<br>
+    Peter Gledhill - Product and Sales Coordinator / Swag Master<br>
+    Emily Wood - Webmaster<br>
+    UBC Varsity Outdoor Club
+  </body>
+</html>
