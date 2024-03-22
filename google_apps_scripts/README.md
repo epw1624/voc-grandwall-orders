@@ -13,5 +13,5 @@ This script requires that you have an object mapping the names of questions on t
 To make this run again as is would require the following:<br>
 <ul>
     <li>Create the mapping object I described above, with a key-value pair for each GrandWall product and its price</li>
-    <li>Replace the index on line 46 with the index of the name question on your form, if applicable</li>
+    <li>Replace the index on line 11 with the index of the name question on your form, if applicable</li>
 </ul>
