@@ -1,3 +1,3 @@
 credentials.py
-test_spreadsheet.xlsx
-invalid_ids.txt
+*.xlsx
+*.txt
